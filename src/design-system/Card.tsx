@@ -49,7 +49,7 @@ export default function Card({
 
     useEffect(() => {
         !!onToggle && onToggle(type, show);
-    }, [show]);
+    }, [show, onToggle, type]);
     
     const showRequired = () => {
         if (required) {

@@ -18,7 +18,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import HintCard from '@/design-system/HintCard';
-import { createEditorStateWithText } from '@draft-js-plugins/editor';
 import TextEditor from '@/design-system/TextEditor';
 import TextField from '@mui/material/TextField';
 import { MessageHeaderData } from '@/pages/types/nodes/message';

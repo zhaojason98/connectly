@@ -11,5 +11,5 @@ export type NodeProp = {
         top: number,
         left: number,
     },
-    connection: number,
+    connection: number | null,
 };

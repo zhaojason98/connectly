@@ -6,6 +6,8 @@ import Canvas from './components/canvas'
 import Header from './components/navigation/Header'
 import NavBar from './components/navigation/NavBar'
 import SideBar from './components/navigation/SideBar'
+import { CurrentNodeContent, ProjectContent } from './types/nodes/context';
+import { NodeProp } from './types/nodes/node';
 
 // Ideally we can fetch a serialized list of nodes to render in the following
 // JSON. We can then deserialize and render it respectfully
@@ -16,45 +18,43 @@ const blocks = {
           type: 'message',
           data: {
             header: {
-              required: false,
               isUsed: true,
               value: `url(/mock_header.jpeg)`,
             },
             body: {
-              required: true,
               isUsed: true,
               value: 'We have an exciting offer. Are you interested in hearing more?'
             },
             footer: {
-              required: false,
               isUsed: true,
               value: `Reply 'STOP' to opt out`
             },
             buttons: {
-              required: false,
               isUsed: true,
               value: ['Talk to an styling expert', 'Sure!', 'Maybe next time']
             }
           },
           position: {
-              top: 300,
+              top: 150,
               left: 700,
           },
           connection: null,
       }
 }
-export const ProjectContext = createContext(blocks);
-export const CurrentNodeContext = createContext(null);
+export const ProjectContext = createContext<ProjectContent>({
+  nodes: blocks,
+  onSave: () => {}
+});
+export const CurrentNodeContext = createContext<CurrentNodeContent>({
+  currentNode: null,
+  setCurrentNode: () => {}
+});
 
 export default function Home() {
   const [nodes, updateNodes] = useState(blocks);
-  const [currentNode, setCurrentNode] = useState(null);
-  const headerName = <h1>
-    Create WhatsApp campaign
-  </h1>
+  const [currentNode, setCurrentNode] = useState<NodeProp | null>(null);
 
   const onSave = (newNode: any) => {
-    console.log(newNode)
     // This should be a network request instead of a state
     // The nodes should be directly read from a database
     updateNodes({

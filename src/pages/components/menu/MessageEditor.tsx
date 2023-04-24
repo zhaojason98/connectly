@@ -33,7 +33,7 @@ const HeaderContainer = styled(RowContainer)({
     justifyContent: 'space-between',
 });
 
-const MainHeader = styled('h1')({
+const MainHeader = styled('h2')({
 
 });
 
@@ -84,11 +84,13 @@ const HEADER_TIPS:  MessageHeaderData = {
 const variableHelp = "Variables are dynamic content that help personalize your campaign, for example: customer names or coupon codes."
 
 export default function MessageEditor() {
-    const {_, onSave} = useContext(ProjectContext);
+    const {nodes, onSave} = useContext(ProjectContext);
     const {currentNode, setCurrentNode} = useContext(CurrentNodeContext);
-    const [data, setData] = useState(currentNode.data);
+    const [data, setData] = useState(currentNode?.data);
     const [headerType, setHeaderType] = useState<keyof MessageHeaderData>(Object.keys(HEADER_TIPS)[0] as keyof MessageHeaderData);
-
+    if (!data) {
+        return null;
+    }
     const handleHeaderTypeChange = (event: SelectChangeEvent<unknown>) => {
         setHeaderType(event.target.value as keyof MessageHeaderData);
     }
@@ -226,7 +228,7 @@ export default function MessageEditor() {
                     type='body'
                     title="Body message"
                     hint="Create body text"
-                    required={data.body.required}
+                    required={true}
                     isUsed={data.body.isUsed}
                 >
                     <div>
@@ -248,7 +250,7 @@ export default function MessageEditor() {
                     type='footer'
                     title="Footer message"
                     hint="Create footer"
-                    required={data.footer.required}
+                    required={false}
                     isUsed={data.footer.isUsed}
                     onToggle={onToggle}
                 >
@@ -264,7 +266,7 @@ export default function MessageEditor() {
                     type='buttons'
                     title="Buttons"
                     hint="Add buttons"
-                    required={data.buttons.required}
+                    required={false}
                     isUsed={data.buttons.isUsed}
                     onToggle={onToggle}
                 >

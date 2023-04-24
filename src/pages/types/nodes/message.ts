@@ -1,5 +1,4 @@
 export type WhatsAppMessageProp = {
-    required: boolean;
     isUsed: boolean;
     value: string;
 }
@@ -9,7 +8,6 @@ export type MessageNodeDataProp = {
     body: WhatsAppMessageProp;
     footer: WhatsAppMessageProp;
     buttons: {
-        required: boolean;
         isUsed: boolean;
         value: string[];
     }

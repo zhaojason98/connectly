@@ -1,6 +1,5 @@
 import {createContext, useState} from 'react';
 import Box from '@mui/material/Box';
-import stockImage from '../../public/mock_header.jpeg';
 
 import Canvas from './components/canvas'
 import Header from './components/navigation/Header'

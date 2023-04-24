@@ -21,7 +21,6 @@ import HintCard from '@/design-system/HintCard';
 import TextEditor from '@/design-system/TextEditor';
 import TextField from '@mui/material/TextField';
 import { MessageHeaderData } from '@/pages/types/nodes/message';
-import { NodeProp } from '@/pages/types/nodes/node';
 import { RowContainer } from '@/design-system/RowContainer';
 
 const Container = styled('div')({

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import VerticalSpacer from "@/design-system/VerticalSpacer";
 import TextField from '@mui/material/TextField';
 import { Title } from "./Campaign";
-import { styled } from '@mui/system';
 import TemplateObject from '../TemplateObject';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMessage as MessageIcon } from '@fortawesome/free-solid-svg-icons';

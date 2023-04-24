@@ -1,0 +1,59 @@
+
+.app {
+    display: flex;
+    flex-shrink: 0;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.main {
+    flex-direction: column;
+    width: calc(100% - 40px);
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 72px);
+}
+
+.main--container {
+    height: 100%;
+}
+
+.editor {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    cursor: text;
+    padding: 16px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    box-shadow: inset 0px 1px 8px -3px #ABABAB;
+    background: #fefefe;
+    overflow: auto;
+    height: 240px;
+}
+
+.editor :global(.public-DraftEditor-content) {
+min-height: 140px;
+}
+
+.options {
+    margin-top: 10px;
+    padding: 0 0.3em;
+    position: absolute;
+    z-index: 1000;
+    box-sizing: content-box;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 30px 0 #dcdcdc;
+}
+
+.editor :global(.public-DraftEditor-content) {
+    min-height: 200px;
+    overflow: auto;
+  }
